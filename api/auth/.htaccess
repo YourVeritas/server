@@ -1,0 +1,14 @@
+RewriteEngine On
+#RewriteBase /~user1/Booker/server/api/auth/
+RewriteBase /user1/Booker/server/api/auth/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule ^(.*)$ index.php?params=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} -s
+RewriteRule ^(.*)$ index.php [L,QSA]
